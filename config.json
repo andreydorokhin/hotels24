@@ -1,0 +1,6 @@
+{
+  "baseURL": "https://google.com",
+  "domain": "https://en.wikipedia.org/wiki/Automation",
+  "browser": "chrome",
+  "detectedText": "automation"
+}
