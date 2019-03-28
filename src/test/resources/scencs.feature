@@ -11,5 +11,4 @@ Feature: Detecting searching result
     Given User is on result page
     When User is searching specific link on results pages
     And User is searching number of results
-    And User is searching number of results on first page
     Then detected result page

@@ -35,6 +35,7 @@ public class FirstScenarioStepdefs {
     public void userIsOnResultPage() {
         resultPage.waitPageLoaded();
     }
+
     @When("^User is searching specific link on results pages$")
     public void userIsSearchingSpecificLinkOnResultsPages() {
         isLinkOnResultsPage = resultPage.isExpectDomainOnSearchingResult(BasePage.settings.getDomain());
@@ -44,16 +45,19 @@ public class FirstScenarioStepdefs {
 
     @And("^User is searching number of results$")
     public void userIsSearchingNumberOfResults() {
-        System.out.println("User is searching number of results");
-    }
+        int numberOfSearchingResult = resultPage.numberOfSearchingResult();
+        System.out.println("numberOfSearchingResult = " + numberOfSearchingResult);
 
-    @And("^User is searching number of results on first page$")
-    public void userIsSearchingNumberOfResultsOnFirstPage() {
-        System.out.println("User is searching number of results on first page");
+        boolean isMore = numberOfSearchingResult > resultPage.numberToCompare;
+        Assert.assertTrue(isMore);
     }
 
     @Then("^detected result page$")
     public void detectedResultPage() {
-        System.out.println("detected result page");
+        int numberOfElementsOnPaje = resultPage.numberOfElementsOnPage();
+        System.out.println("numberOfElementsOnPage = " + numberOfElementsOnPaje);
+
+        boolean isMore = numberOfElementsOnPaje == resultPage.numberOfElementsToCompare;
+        Assert.assertTrue(isMore);
     }
 }
